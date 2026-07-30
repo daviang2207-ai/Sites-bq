@@ -1,0 +1,6 @@
+{
+  "name": "BQ Seguros",
+  "description": "Plataforma digital da BQ Seguros. Simulação rápida e inteligente de seguros Auto, Residencial, Vida e Saúde com as maiores seguradoras do mercado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

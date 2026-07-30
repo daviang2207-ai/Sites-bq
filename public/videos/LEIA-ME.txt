@@ -1,0 +1,9 @@
+Como ativar seus vídeos personalizados na Hero Section:
+
+1. No gerenciador de arquivos (File Explorer) do AI Studio (à esquerda), crie ou arraste os seus 4 vídeos para esta pasta.
+2. Renomeie os vídeos para os seguintes nomes exatamente:
+   - video1.mp4
+   - video2.mp4
+   - video3.mp4
+   - video4.mp4
+3. Assim que você fizer isso, o sistema irá carregar os seus vídeos locais premium automaticamente com transições suaves (fade de 800ms) sem que você precise mexer em nenhuma linha de código!
