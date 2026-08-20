@@ -3,37 +3,49 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight, User, ExternalLink } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, Variants } from 'motion/react';
 import { mockTestimonials } from '../data/insuranceData';
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [isPaused, setIsPaused] = useState(false);
 
-  const slideVariants = {
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex((prev) => (prev === mockTestimonials.length - 1 ? 0 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  const slideVariants: Variants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? 100 : -100,
+      x: dir > 0 ? 80 : -80,
       opacity: 0,
-      scale: 0.95
+      scale: 0.96
     }),
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.4,
-        ease: [0.16, 1, 0.3, 1]
+        duration: 0.35,
+        ease: 'easeOut'
       }
     },
     exit: (dir: number) => ({
-      x: dir > 0 ? -100 : 100,
+      x: dir > 0 ? -80 : 80,
       opacity: 0,
-      scale: 0.95,
+      scale: 0.96,
       transition: {
-        duration: 0.3,
-        ease: [0.16, 1, 0.3, 1]
+        duration: 0.25,
+        ease: 'easeIn'
       }
     })
   };
@@ -68,7 +80,12 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Slider Body */}
-        <div className="relative min-h-[340px] flex flex-col justify-between" id="testimonials-carousel-container">
+        <div 
+          className="relative min-h-[340px] flex flex-col justify-between" 
+          id="testimonials-carousel-container"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           
           <div className="relative overflow-visible px-4 sm:px-12">
             <AnimatePresence initial={false} custom={direction} mode="wait">

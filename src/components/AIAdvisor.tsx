@@ -65,7 +65,7 @@ export default function AIAdvisor() {
       return 'O **Seguro Residencial** é um dos mais baratos do mercado (geralmente menos de R$ 40/mês). Ele cobre incêndio, danos elétricos (queima de eletrodomésticos por curtos), roubo de bens e ainda dá assistência gratuita de chaveiro, eletricista e conserto de eletrodomésticos 24h. Vale muito a pena para proteger o seu lar.';
     }
 
-    return 'Entendido! Como corretora digital, nós comparamos opções personalizadas nas 8 maiores seguradoras do país (como Porto Seguro, Bradesco, Allianz, Tokio Marine). Você gostaria que eu simulasse uma proposta de seguro específica para você ou tem alguma outra dúvida sobre as coberturas?';
+    return 'Entendido! Como corretora digital, nós comparamos opções personalizadas nas 19 principais seguradoras do país (como Allianz, Bradesco, Porto Seguro, Tokio Marine). Você gostaria que eu simulasse uma proposta de seguro específica para você ou tem alguma outra dúvida sobre as coberturas?';
   };
 
   const handleSendMessage = async (textToSend: string) => {

@@ -118,9 +118,9 @@ export const insuranceProducts: InsuranceProduct[] = [
   },
   {
     id: 'equipment',
-    title: 'Seguro Equipamentos',
-    shortDesc: 'Segurança total para notebooks, celulares, câmeras e outras ferramentas de trabalho.',
-    description: 'Sua produtividade não pode parar por causa de um acidente ou roubo. Garanta a proteção de seus dispositivos eletrônicos portáteis fundamentais para o seu trabalho diário ou lazer.',
+    title: 'Seguro para Equipamentos e Instrumentos',
+    shortDesc: 'Segurança total para notebooks, celulares, câmeras, ferramentas e instrumentos de trabalho.',
+    description: 'Sua produtividade não pode parar por causa de um acidente ou roubo. Garanta a proteção de seus dispositivos eletrônicos portáteis, equipamentos audiovisuais e instrumentos fundamentais para o seu trabalho diário ou lazer.',
     iconName: 'Laptop',
     coverages: [
       'Subtração do equipamento sob ameaça (roubo)',
@@ -140,8 +140,8 @@ export const insuranceProducts: InsuranceProduct[] = [
   },
   {
     id: 'motorhome',
-    title: 'Seguro de Carga (Caminhão)',
-    shortDesc: 'Proteção essencial para o transporte de cargas, cobrindo tombamentos, acidentes e roubo.',
+    title: 'Seguro de Carga',
+    shortDesc: 'Proteção essencial para o transporte de cargas, cobrindo acidentes, roubos e avarias nas estradas.',
     description: 'Garanta a segurança financeira do transporte das suas mercadorias nas estradas brasileiras. Nosso seguro de carga cobre RCTR-C (Acidentes), RCF-DC (Roubo/Desvio de Carga) e avarias para caminhões próprios, agregados ou frotas.',
     iconName: 'Truck',
     coverages: [
@@ -162,8 +162,8 @@ export const insuranceProducts: InsuranceProduct[] = [
   },
   {
     id: 'others',
-    title: 'Seguro Fiança & Consórcios',
-    shortDesc: 'Alugue imóveis sem fiador com o Seguro Fiança e conquiste bens através de consórcios.',
+    title: 'Outros Seguros',
+    shortDesc: 'Alugue imóveis sem fiador com o Seguro Fiança, conquiste bens com Consórcios e mais.',
     description: 'O Seguro Fiança Locatícia é a melhor solução para alugar imóveis residenciais ou comerciais sem necessidade de fiador ou caução. Garante o pagamento do aluguel, encargos e danos ao imóvel, oferecendo agilidade total para o inquilino e segurança máxima para o proprietário.',
     iconName: 'ShieldPlus',
     coverages: [
@@ -185,18 +185,25 @@ export const insuranceProducts: InsuranceProduct[] = [
 ];
 
 export const mockCarriers = [
-  { name: 'Porto Seguro', logo: 'Porto', rating: '9.4' },
-  { name: 'Tokio Marine', logo: 'Tokio', rating: '9.2' },
-  { name: 'Bradesco Seguros', logo: 'Bradesco', rating: '9.0' },
-  { name: 'Allianz Seguros', logo: 'Allianz', rating: '9.1' },
-  { name: 'SulAmérica', logo: 'Sulamérica', rating: '8.9' },
-  { name: 'Liberty Seguros', logo: 'Liberty', rating: '8.8' },
-  { name: 'MAPFRE', logo: 'Mapfre', rating: '8.7' },
-  { name: 'Azul Seguros', logo: 'Azul', rating: '8.9' },
-  { name: 'HDI Seguros', logo: 'HDI', rating: '8.8' },
-  { name: 'Sompo Seguros', logo: 'Sompo', rating: '8.7' },
-  { name: 'Zurich Seguros', logo: 'Zurich', rating: '8.9' },
-  { name: 'Suhai Seguradora', logo: 'Suhai', rating: '9.1' }
+  { name: 'Allianz', logo: 'Allianz', rating: '9.1' },
+  { name: 'Bradesco', logo: 'Bradesco', rating: '9.0' },
+  { name: 'EZZE', logo: 'EZZE', rating: '9.0' },
+  { name: 'Darwin', logo: 'Darwin', rating: '8.9' },
+  { name: 'Yelum', logo: 'Yelum', rating: '8.8' },
+  { name: 'HDI', logo: 'HDI', rating: '8.8' },
+  { name: 'Aliro', logo: 'Aliro', rating: '8.7' },
+  { name: 'MAPFRE', logo: 'MAPFRE', rating: '8.7' },
+  { name: 'Porto Seguro', logo: 'Porto Seguro', rating: '9.4' },
+  { name: 'Itaú', logo: 'Itaú', rating: '8.9' },
+  { name: 'Azul', logo: 'Azul', rating: '8.9' },
+  { name: 'Mitsui', logo: 'Mitsui', rating: '8.8' },
+  { name: 'Sancor', logo: 'Sancor', rating: '8.8' },
+  { name: 'Tokio Marine', logo: 'Tokio Marine', rating: '9.2' },
+  { name: 'Justos', logo: 'Justos', rating: '8.9' },
+  { name: 'Zurich', logo: 'Zurich', rating: '8.9' },
+  { name: 'PIER', logo: 'PIER', rating: '9.0' },
+  { name: 'AXA', logo: 'AXA', rating: '8.9' },
+  { name: 'Suhai', logo: 'Suhai', rating: '9.1' }
 ];
 
 export const mockTestimonials = [

@@ -11,7 +11,7 @@ import riceCookerImg from '../assets/images/rice_cooker_1784732398061.jpg';
 import miniAirFryerImg from '../assets/images/mini_air_fryer_1784732411424.jpg';
 import sandwichMakerImg from '../assets/images/sandwich_maker_1784732420643.jpg';
 import wineKitImg from '../assets/images/wine_gift_kit_1784573460236.jpg';
-import bbqKitImg from '../assets/images/bbq_gift_kit_1784573475863.jpg';
+import bbqKitImg from '../assets/images/bq_custom_kit_1787060925738.jpg';
 
 interface RewardTier {
   referrals: number;

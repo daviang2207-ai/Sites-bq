@@ -39,13 +39,19 @@
   
   body {
     background-color: #f8fafc; /* Ice White - crisp, clean cool white canvas for modern professional trust */
-    color: #1a2433; /* Deep navy-slate for readable and rich body text */
+    color: #0f172a; /* Deep navy-slate for readable and rich body text with WCAG AAA contrast */
     overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 600;
+  }
+
+  /* Global Accessible Focus-Visible Ring */
+  :focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 2px;
   }
 
   /* Custom scrollbar */
@@ -62,6 +68,18 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(2, 132, 199, 0.7);
+  }
+}
+
+/* Reduced Motion Compliance (WCAG 2.2 AAA) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

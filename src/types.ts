@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type InsuranceType = 'auto' | 'home' | 'life' | 'health' | 'enterprise' | 'travel' | 'equipment' | 'pet' | 'motorhome' | 'others';
+export type InsuranceType = 'auto' | 'home' | 'life' | 'health' | 'enterprise' | 'travel' | 'equipment' | 'pet' | 'motorhome' | 'cargo' | 'others';
 
 export interface InsuranceProduct {
   id: InsuranceType;
@@ -79,4 +79,51 @@ export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
   timestamp: string;
+}
+
+export interface BlogAuthor {
+  name: string;
+  role: string;
+  avatar?: string;
+  bio?: string;
+}
+
+export interface BlogCategory {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+  iconName?: string;
+}
+
+export interface BlogSource {
+  title: string;
+  url: string;
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  content: string;
+  category: string;
+  categoryId: string;
+  author: BlogAuthor;
+  publishedAt: string;
+  updatedAt?: string;
+  readingTime: number; // in minutes
+  featured?: boolean;
+  popular?: boolean;
+  coverImage: string;
+  imageAlt: string;
+  tags: string[];
+  relatedInsuranceId?: InsuranceType;
+  sources?: BlogSource[];
+  disclaimer?: string;
+  seo?: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
 }

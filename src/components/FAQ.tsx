@@ -44,17 +44,21 @@ export default function FAQ() {
                 id={`faq-item-${index}`}
               >
                 <button
+                  type="button"
                   onClick={() => toggleAccordion(index)}
-                  className="w-full flex items-center justify-between p-5 text-left text-slate-800 hover:text-accent-600 transition-colors font-semibold text-sm sm:text-base gap-4 cursor-pointer focus:outline-none"
+                  className="w-full flex items-center justify-between p-5 text-left text-slate-900 hover:text-accent-600 transition-colors font-semibold text-sm sm:text-base gap-4 cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-inset"
                   id={`faq-btn-trigger-${index}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-content-${index}`}
                 >
                   <div className="flex items-center gap-3">
-                    <HelpCircle size={18} className="text-accent-600 shrink-0" />
+                    <HelpCircle size={18} className="text-accent-600 shrink-0" aria-hidden="true" />
                     <span>{item.question}</span>
                   </div>
                   <ChevronDown
                     size={18}
                     className={`text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-accent-600' : ''}`}
+                    aria-hidden="true"
                   />
                 </button>
 
@@ -66,8 +70,10 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       id={`faq-content-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-trigger-${index}`}
                     >
-                      <div className="p-5 pt-0 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                      <div className="p-5 pt-0 text-slate-700 text-xs sm:text-sm leading-relaxed border-t border-slate-100 bg-slate-50/50">
                         {item.answer}
                       </div>
                     </motion.div>
