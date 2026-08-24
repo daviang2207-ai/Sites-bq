@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ArrowLeft, Shield, Check, Loader2, Info, Send, Sparkles, Phone, Lock, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { QuoteProposal, CarrierOption } from '../types';
@@ -20,6 +20,7 @@ export default function Simulator({ selectedInsuranceType, onAddProposal, onNavi
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const isInitialMount = useRef(true);
 
   // Form states
   const [insuranceType, setInsuranceType] = useState<string>('auto');
@@ -60,6 +61,14 @@ export default function Simulator({ selectedInsuranceType, onAddProposal, onNavi
 
   // Sync selected type from cards
   useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      if (selectedInsuranceType) {
+        setInsuranceType(selectedInsuranceType);
+      }
+      return;
+    }
+
     if (selectedInsuranceType) {
       setInsuranceType(selectedInsuranceType);
       setCurrentStep(2); // Automatically advance to step 2 for lower friction

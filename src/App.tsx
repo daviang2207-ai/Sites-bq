@@ -24,7 +24,7 @@ import { getSavedBlogPosts } from './data/blogData';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
-  const [selectedInsuranceType, setSelectedInsuranceType] = useState<string>('auto');
+  const [selectedInsuranceType, setSelectedInsuranceType] = useState<string>('');
   const [proposals, setProposals] = useState<QuoteProposal[]>([]);
   
   // Blog State & Navigation
