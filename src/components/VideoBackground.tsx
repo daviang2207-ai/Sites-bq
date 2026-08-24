@@ -6,21 +6,23 @@
 import { useState, useEffect, useRef } from 'react';
 import happyFamilyImg from '../assets/images/happy_family_insurance_1784571500195.jpg';
 
+const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
 const videosConfig = [
   {
-    primary: "/videos/video1.mp4",
+    primary: `${baseUrl}videos/video1.mp4`,
     fallback: "https://assets.mixkit.co/videos/preview/mixkit-young-parents-with-their-baby-playing-on-the-bed-42347-large.mp4"
   },
   {
-    primary: "/videos/video2.mp4",
+    primary: `${baseUrl}videos/video2.mp4`,
     fallback: "https://assets.mixkit.co/videos/preview/mixkit-family-playing-together-in-bed-in-the-morning-42353-large.mp4"
   },
   {
-    primary: "/videos/video3.mp4",
+    primary: `${baseUrl}videos/video3.mp4`,
     fallback: "https://assets.mixkit.co/videos/preview/mixkit-happy-family-playing-with-their-dog-in-the-garden-42358-large.mp4"
   },
   {
-    primary: "/videos/video4.mp4",
+    primary: `${baseUrl}videos/video4.mp4`,
     fallback: "https://assets.mixkit.co/videos/preview/mixkit-family-with-little-child-in-the-living-room-41775-large.mp4"
   }
 ];

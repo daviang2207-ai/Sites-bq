@@ -6,6 +6,19 @@
     <title>BQ Seguros | Mais de 38 Anos Protegendo o que Importa</title>
     <meta name="description" content="Corretora de seguros autorizada SUSEP com mais de 38 anos de tradição. Cotação e consultoria especializada em seguro Auto, Residencial, Vida, Empresarial e Viagem." />
     <meta name="theme-color" content="#0F2C59" />
+    <script type="text/javascript">
+      // GitHub Pages SPA route restoration
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-sky-500 selection:text-white">
     <div id="root"></div>

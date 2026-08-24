@@ -32,27 +32,65 @@ export default function App() {
   const [currentView, setCurrentView] = useState<'home' | 'blog' | 'blog-post'>('home');
   const [currentSlug, setCurrentSlug] = useState<string | null>(null);
 
-  // Sync with browser history / URL path
+  // Helper to extract base repository prefix for subfolder deployments
+  const getBasePath = () => {
+    const pathname = window.location.pathname;
+    if (pathname.includes('/blog')) {
+      const prefix = pathname.split('/blog')[0];
+      return prefix.endsWith('/') ? prefix.slice(0, -1) : prefix;
+    }
+    return pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  };
+
+  // Sync with browser history / URL path / Hash
   useEffect(() => {
     const handleLocationChange = () => {
       const path = window.location.pathname;
-      if (path.startsWith('/blog/') && path.length > 6) {
-        const slug = path.replace('/blog/', '').replace(/\/$/, '');
+      const hash = window.location.hash;
+
+      // Handle hash routing support e.g. #/blog or #blog or #/blog/slug
+      const hashClean = hash.replace(/^#\/?/, '');
+      if (hashClean.startsWith('blog/')) {
+        const slug = hashClean.replace('blog/', '').replace(/\/$/, '');
         setCurrentSlug(slug);
         setCurrentView('blog-post');
         setActiveSection('blog');
-      } else if (path === '/blog' || path === '/blog/') {
+        return;
+      } else if (hashClean === 'blog') {
         setCurrentSlug(null);
         setCurrentView('blog');
         setActiveSection('blog');
-      } else {
-        setCurrentView('home');
+        return;
       }
+
+      // Handle pathname routing support e.g. /blog/slug or /repo-name/blog/slug
+      if (path.includes('/blog/')) {
+        const slug = path.split('/blog/')[1]?.replace(/\/$/, '');
+        if (slug) {
+          setCurrentSlug(slug);
+          setCurrentView('blog-post');
+          setActiveSection('blog');
+          return;
+        }
+      }
+      
+      if (path.endsWith('/blog') || path.endsWith('/blog/')) {
+        setCurrentSlug(null);
+        setCurrentView('blog');
+        setActiveSection('blog');
+        return;
+      }
+
+      setCurrentView('home');
     };
 
     handleLocationChange();
     window.addEventListener('popstate', handleLocationChange);
-    return () => window.removeEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   // Smooth Intersection Observer to update current active header menu link on scroll (Home view only)
@@ -85,7 +123,8 @@ export default function App() {
     setCurrentSlug(null);
     setActiveSection('blog');
     try {
-      window.history.pushState({}, '', '/blog');
+      const base = getBasePath();
+      window.history.pushState({}, '', `${base}/blog`);
     } catch {
       // safe fallback for preview sandbox
     }
@@ -97,7 +136,8 @@ export default function App() {
     setCurrentView('blog-post');
     setActiveSection('blog');
     try {
-      window.history.pushState({}, '', `/blog/${slug}`);
+      const base = getBasePath();
+      window.history.pushState({}, '', `${base}/blog/${slug}`);
     } catch {
       // safe fallback for preview sandbox
     }
@@ -114,7 +154,8 @@ export default function App() {
       setCurrentView('home');
       setCurrentSlug(null);
       try {
-        window.history.pushState({}, '', '/');
+        const base = getBasePath();
+        window.history.pushState({}, '', base ? `${base}/` : '/');
       } catch {
         // fallback
       }
